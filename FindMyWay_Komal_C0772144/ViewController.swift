@@ -38,5 +38,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
-        mapView.addGestureRecognizer(tap)}
-
+        mapView.addGestureRecognizer(tap)
+    }
+      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+        {
+            
+            location = locations.first!
+            let coordinateRegion = MKCoordinateRegion(center: location!.coordinate, latitudinalMeters: 1000, longitudinalMeters:1000)
+            mapView.setRegion(coordinateRegion, animated: true)
+            locationManager.stopUpdatingLocation()
+        }
