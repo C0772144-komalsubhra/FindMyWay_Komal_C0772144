@@ -32,6 +32,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
-    
+        
+        mapView.showsUserLocation = true
+        mapView.isZoomEnabled = false    
 }
 
