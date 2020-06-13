@@ -40,6 +40,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         tap.numberOfTapsRequired = 2
         mapView.addGestureRecognizer(tap)
     }
+    
+    
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
         {
             
@@ -47,4 +49,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let coordinateRegion = MKCoordinateRegion(center: location!.coordinate, latitudinalMeters: 1000, longitudinalMeters:1000)
             mapView.setRegion(coordinateRegion, animated: true)
             locationManager.stopUpdatingLocation()
+        }
+    
+      @objc func doubleTapped(sender: UIGestureRecognizer)
+        {
+            //Getting coordinate of double tapped point and adding annotation
+            let locationInView = sender.location(in: mapView)
+            let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
+            addAnnotation(location: locationOnMap)
         }
