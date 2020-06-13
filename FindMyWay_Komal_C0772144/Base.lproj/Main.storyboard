@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FindMyWay_Komal_C0772144" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fyg-wX-gM8">
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6g-43-QcK" userLabel="Find My Way">
+                                <rect key="frame" x="368" y="800" width="25.5" height="23.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23.5" id="NaM-yh-m1C"/>
+                                    <constraint firstAttribute="width" constant="25.5" id="Vwb-lG-yEU"/>
+                                </constraints>
+                                <state key="normal" image="location.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="findMyWay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aok-tf-oK9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FIND WAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZO-XZ-zHy">
+                                <rect key="frame" x="4" y="62" width="406" height="47"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y12-vY-qnb">
+                                <rect key="frame" x="140" y="788" width="135" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="v2C-VS-xj4"/>
+                                    <constraint firstAttribute="height" constant="31" id="vVZ-sX-Eci"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Car"/>
+                                    <segment title="Walk"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eEi-RG-Put"/>
+                                </connections>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-Xk-phu">
+                                <rect key="frame" x="20" y="792" width="57.5" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urz-xO-c9F">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="22"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="minus" catalog="system">
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zoomOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JyU-G2-irG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5r-mw-EHr">
+                                        <rect key="frame" x="36" y="0.0" width="21.5" height="22"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zoomIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MJF-C0-0Jx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57.5" id="g8m-Yx-1IU"/>
+                                    <constraint firstAttribute="height" constant="22" id="o7y-8t-ujv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="y12-vY-qnb" firstAttribute="leading" secondItem="uuh-Xk-phu" secondAttribute="trailing" constant="62.5" id="4fK-Ja-UtD"/>
+                            <constraint firstItem="fyg-wX-gM8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6u4-cP-RQB"/>
+                            <constraint firstItem="KZO-XZ-zHy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="AAb-D1-bxg"/>
+                            <constraint firstItem="uuh-Xk-phu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GKV-yo-xnG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KZO-XZ-zHy" secondAttribute="trailing" constant="4" id="Hvg-XD-2QQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fyg-wX-gM8" secondAttribute="bottom" id="Ny4-Ny-cKT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y12-vY-qnb" secondAttribute="bottom" constant="43" id="O3T-78-TP2"/>
+                            <constraint firstItem="fyg-wX-gM8" firstAttribute="top" secondItem="KZO-XZ-zHy" secondAttribute="bottom" constant="4" id="WWf-9L-g9i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J6g-43-QcK" secondAttribute="bottom" constant="38.5" id="aWo-46-MVA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fyg-wX-gM8" secondAttribute="trailing" id="cVg-Ta-Rht"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J6g-43-QcK" secondAttribute="trailing" constant="20.5" id="ehZ-Md-h3W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uuh-Xk-phu" secondAttribute="bottom" constant="43" id="ibO-Um-Sfl"/>
+                            <constraint firstItem="KZO-XZ-zHy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="oMh-cu-gCA"/>
+                            <constraint firstItem="y12-vY-qnb" firstAttribute="top" secondItem="KZO-XZ-zHy" secondAttribute="bottom" constant="700" id="rMe-lr-cfd"/>
+                            <constraint firstItem="uuh-Xk-phu" firstAttribute="top" secondItem="KZO-XZ-zHy" secondAttribute="bottom" constant="709" id="tAQ-bk-WNn"/>
+                            <constraint firstItem="fyg-wX-gM8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="uHC-sM-Mo1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnFindMyWay" destination="J6g-43-QcK" id="mwb-nC-6ay"/>
+                        <outlet property="btnZoomIn" destination="q5r-mw-EHr" id="N8C-ht-Csc"/>
+                        <outlet property="btnZoomOut" destination="Urz-xO-c9F" id="Wo9-Wn-UDZ"/>
+                        <outlet property="mapView" destination="fyg-wX-gM8" id="Ncg-sH-c6m"/>
+                        <outlet property="segmentType" destination="y12-vY-qnb" id="D5O-C0-geg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
+        <image name="minus" catalog="system" width="128" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+    </resources>
+</document>
