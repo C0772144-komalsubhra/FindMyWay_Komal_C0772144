@@ -22,6 +22,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var aLon: CLLocationDegrees??
     var location: CLLocation?
     
+     @IBAction func indexChanged(_ sender: Any) {
+           
+            route()
+ }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
