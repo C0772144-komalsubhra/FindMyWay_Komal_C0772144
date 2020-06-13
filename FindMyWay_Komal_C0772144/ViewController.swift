@@ -34,6 +34,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.startUpdatingLocation()
         
         mapView.showsUserLocation = true
-        mapView.isZoomEnabled = false    
-}
+        mapView.isZoomEnabled = false   
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        mapView.addGestureRecognizer(tap)}
 
