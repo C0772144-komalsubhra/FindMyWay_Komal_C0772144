@@ -139,4 +139,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             region.span.longitudeDelta /= 2.0
             mapView.setRegion(region, animated: true)
         }
+     @IBAction func zoomOut(_ sender: Any)
+        {
+            var region: MKCoordinateRegion = mapView.region
+            region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
+            region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
+            mapView.setRegion(region, animated: true)
+        }
 }
