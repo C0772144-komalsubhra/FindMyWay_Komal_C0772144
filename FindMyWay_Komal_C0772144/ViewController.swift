@@ -1,7 +1,6 @@
 //
 //  ViewController.swift
 //  FindMyWay_Komal_C0772144
-//
 //  Created by user175427 on 6/11/20.
 //  Copyright © 2020 user175427. All rights reserved.
 //
