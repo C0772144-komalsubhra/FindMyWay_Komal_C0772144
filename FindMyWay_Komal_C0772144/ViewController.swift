@@ -53,8 +53,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
       @objc func doubleTapped(sender: UIGestureRecognizer)
         {
-            //Getting coordinate of double tapped point and adding annotation
+           
             let locationInView = sender.location(in: mapView)
             let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
             addAnnotation(location: locationOnMap)
+        }
+    
+     func addAnnotation(location: CLLocationCoordinate2D)
+        {
+           
+            let oldAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(oldAnnotations)
+            
+           
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            aLat = annotation.coordinate.latitude
+            aLon = annotation.coordinate.longitude
+            annotation.title = "Destination"
+            annotation.subtitle = "Destination"
+        
+            self.mapView.addAnnotation(annotation)
         }
