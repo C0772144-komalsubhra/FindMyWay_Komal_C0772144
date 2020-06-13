@@ -131,4 +131,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         renderer.lineWidth = 3;
         return renderer
     }
+    
+     @IBAction func zoomIn(_ sender: Any)
+        {
+            var region: MKCoordinateRegion = mapView.region
+            region.span.latitudeDelta /= 2.0
+            region.span.longitudeDelta /= 2.0
+            mapView.setRegion(region, animated: true)
+        }
 }
