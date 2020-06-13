@@ -26,6 +26,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
            
             route()
  }
+     @IBAction func findMyWay(_ sender: Any) {
+            route()
+  }
     
     override func viewDidLoad() {
         super.viewDidLoad()
