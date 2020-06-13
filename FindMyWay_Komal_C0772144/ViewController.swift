@@ -58,6 +58,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             locationManager.stopUpdatingLocation()
         }
     
+     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 3;
+        return renderer
+    }
+    
+    
       @objc func doubleTapped(sender: UIGestureRecognizer)
         {
            
@@ -66,23 +74,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             addAnnotation(location: locationOnMap)
         }
     
-     func addAnnotation(location: CLLocationCoordinate2D)
-        {
-           
-            let oldAnnotations = self.mapView.annotations
-            self.mapView.removeAnnotations(oldAnnotations)
-            
-           
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location
-            aLat = annotation.coordinate.latitude
-            aLon = annotation.coordinate.longitude
-            annotation.title = "Destination"
-            annotation.subtitle = "Destination"
-        
-            self.mapView.addAnnotation(annotation)
-        }
-     func route()
+      func route()
     {
             self.mapView.removeOverlays(self.mapView.overlays)
            
@@ -92,16 +84,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if(aLat == nil || aLon == nil)
         {
                 let alertController = UIAlertController(title: "Error", message:
-                "No destination selected", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                "Destination Not Selected", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
 
                 self.present(alertController, animated: true, completion: nil)
         }
         else
         {
-              
-                request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: aLat as! CLLocationDegrees, longitude: aLon as! CLLocationDegrees), addressDictionary: nil))
-                request.requestsAlternateRoutes = false
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: aLat as! CLLocationDegrees, longitude: aLon as! CLLocationDegrees), addressDictionary: nil))
+            request.requestsAlternateRoutes = false
         }
        
         switch segmentType.selectedSegmentIndex
@@ -124,13 +115,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         }
     }
-      func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-        renderer.strokeColor = UIColor.blue
-        renderer.lineWidth = 3;
-        return renderer
-    }
     
+    
+     func addAnnotation(location: CLLocationCoordinate2D)
+        {
+           
+            let oldAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(oldAnnotations)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            aLat = annotation.coordinate.latitude
+            aLon = annotation.coordinate.longitude
+            annotation.title = "Destination"
+            annotation.subtitle = "Destination"
+            self.mapView.addAnnotation(annotation)
+        }
+   
+     
      @IBAction func zoomIn(_ sender: Any)
         {
             var region: MKCoordinateRegion = mapView.region
@@ -138,6 +139,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             region.span.longitudeDelta /= 2.0
             mapView.setRegion(region, animated: true)
         }
+    
      @IBAction func zoomOut(_ sender: Any)
         {
             var region: MKCoordinateRegion = mapView.region
